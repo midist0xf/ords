@@ -2,3 +2,16 @@ node_modules/
 dist/
 .env
 .runtime-manifest.json
+__pycache__/
+*.pyc
+.pyc
+.venv/
+node_modules/
+target/
+*.egg-info/
+dist/
+build/
+*.log
+agent_baseline.md
+.env
+.env.local

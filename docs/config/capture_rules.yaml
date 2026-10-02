@@ -1,0 +1,7 @@
+rules:
+  - pattern: "execution_*"
+    capture: ["stdout", "stderr", "exit_code", "duration_ms"]
+  - pattern: "network_*"
+    capture: ["host", "port", "protocol", "bytes_sent", "bytes_received"]
+  - pattern: "state_*"
+    capture: ["namespace", "key", "old_value_hash", "new_value_hash"]

@@ -1,0 +1,16 @@
+runtime:
+  environment_id: "local-dev"
+  replay_data_dir: "/var/ords/replay"
+  retention_policy_days: 90
+  debug_mode: false
+
+instrumentation:
+  hook_probe_rate_ms: 250
+  context_capture_depth: 6
+  reconciliation_batch_size: 4096
+  enable_deterministic_replay: true
+
+telemetry:
+  aggregator_port: 9704
+  export_interval_sec: 60
+  compression: "zstd"
