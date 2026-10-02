@@ -1,0 +1,18 @@
+agents:
+  - id: "agent-runtime-01"
+    role: "execution_orchestrator"
+    hooks:
+      - type: "pre_execution"    path: "src/hooks/python/pre_execution.py"
+      - type: "post_execution"   path: "src/hooks/python/post_execution.py"
+    constraints:
+      max_concurrent_tasks: 16
+      memory_limit_mb: 4096
+      allowed_networks: ["10.0.0.0/8", "172.16.0.0/12"]
+
+  - id: "agent-runtime-02"
+    role: "context_aggregator"
+    hooks:
+      - type: "state_capture"    path: "src/hooks/python/state_capture.py"
+    constraints:
+      max_concurrent_tasks: 8
+      memory_limit_mb: 2048

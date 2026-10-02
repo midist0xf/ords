@@ -1,0 +1,31 @@
+__pycache__/
+*.pyc
+.pyc
+.venv/
+node_modules/
+target/
+*.egg-info/
+dist/
+build/
+*.log
+agent_baseline.md
+.env
+.env.local
+EOF
+
+# Create deployment compose file
+mkdir -p deployments
+cat > deployments/docker-compose.prod.yaml << 'PYEOF'
+version: "3.8"
+services:
+  ords-control-plane:
+    build: .
+    ports: ["9704:9704"]
+    volumes: ["/var/ords:/var/ords"]
+    environment:
+      ORDS_ENV: "production"
+      ORDS_DEBUG: "0"
+  ords-hook-bus:
+    image: ords/hook-bus:3.4.1
+  ords-telemetry:
+    image: ords/telemetry:3.4.1
